@@ -29,7 +29,7 @@ enum NetworkError: Error {
     case wrongStatusCode(code: Int)
 }
 
-class NetworkService {
+open class NetworkService {
     func getData<T: Decodable>(urlString: String, completion: @escaping (Result<T,Error>) ->(Void)) {
         let url = URL(string: urlString)!
         
