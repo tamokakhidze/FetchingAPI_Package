@@ -29,8 +29,11 @@ enum NetworkError: Error {
     case wrongStatusCode(code: Int)
 }
 
-open class NetworkService {
-    func getData<T: Decodable>(urlString: String, completion: @escaping (Result<T,Error>) ->(Void)) {
+public class NetworkService {
+    
+    public init() {}
+    
+    public func getData<T: Decodable>(urlString: String, completion: @escaping (Result<T,Error>) ->(Void)) {
         let url = URL(string: urlString)!
         
         URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
